@@ -49,5 +49,58 @@ class ApiServices {
     );
   }
 
+  // 🛠 Forgot password API
+  static Future<http.Response> forgotPassword({required String email,required String newPassword,}) async {
+    final url = Uri.parse('$baseUrl/auth/forgot-password');
+
+    return await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        "email": email,
+        "newPassword": newPassword,
+      }),
+    );
+  }
+
+  static Future<http.Response> bookAppointment({
+    required String patientId,
+    required String doctorId,
+    required String date,
+    required String timeSlot,
+  }) async {
+    final url = Uri.parse('$baseUrl/appointments/book');
+
+    return await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'patientId': patientId,
+        'doctorId': doctorId,
+        'date': date,
+        'timeSlot': timeSlot,
+      }),
+    );
+  }
+
+  static Future<http.Response> rescheduleAppointment(
+    String appointmentId,
+    String newDate,
+    String newTimeSlot,
+  ) async {
+    final url = Uri.parse('$baseUrl/appointments/reschedule');
+
+    return await http.put(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'appointmentId': appointmentId,
+        'newDate': newDate,
+        'newTimeSlot': newTimeSlot,
+      }),
+    );
+  }
+
+
 }
 

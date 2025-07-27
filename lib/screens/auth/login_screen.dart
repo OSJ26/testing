@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:testing/services/api_service.dart';
 //import 'forgot_password_screen.dart';
 import '../patient/patient_home_screen.dart';
+import 'forgot_password_dialog.dart';
 import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -194,13 +195,13 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 12),
 
               // Forgot password link
-              /*Align(
+              Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const ForgotPasswordScreen()),
+                      MaterialPageRoute(builder: (_) => const ForgotPasswordDialog()),
                     );
                   },
                   child: const Text(
@@ -208,7 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(color: Colors.white70),
                   ),
                 ),
-              ),*/
+              ),
 
               const SizedBox(height: 16),
 
